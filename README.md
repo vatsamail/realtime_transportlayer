@@ -21,3 +21,9 @@ learning kafka
 - Launch Kafka server: _C:\softwares\kafka>kafka-server-start.bat config\server.properties_
 
 ## Kafka CLI
+- Run both the servers (Refer _Launch_ topics in the installation section above)
+- Execute: _C:\softwares\kafka>kafka-topics --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3 --replication-factor 2_. This will fail as we are running only one server (broker) and trying to replicate twice (or on two different servers)
+- Hence change the command to: _C:\softwares\kafka>kafka-topics --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3 --replication-factor 1_
+- Now list all the Kafka topics: _C:\softwares\kafka>kafka-topics --zookeeper 127.0.0.1:2181 --list_
+- details of first topic: _C:\QSD\learn\kafka\realtime_transportlayer>kafka-topics --zookeeper 127.0.0.1:2181 --topic first_topic --describe_
+- Delete the topic: _kafka-topics --zookeeper 127.0.0.1:2181 --topic second_topic --delete_
